@@ -67,6 +67,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
       rows.sort((a, b) => {
         let aVal = a.children[i].textContent.trim();
+
         let bVal = b.children[i].textContent.trim();
 
         if (key === 'salary') {
