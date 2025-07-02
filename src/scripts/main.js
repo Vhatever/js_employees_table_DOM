@@ -81,6 +81,10 @@ window.addEventListener('DOMContentLoaded', () => {
           bVal = parseFloat(bVal);
         }
 
+        if (aVal === bVal) {
+          return 0;
+        }
+
         return d === 'asc' ? (aVal > bVal ? 1 : -1) : aVal < bVal ? 1 : -1;
       });
 
@@ -121,8 +125,13 @@ window.addEventListener('DOMContentLoaded', () => {
       errors.push('Age must be between 18 and 90');
     }
 
-    if (!data.position || !data.office || isNaN(data.salary)) {
-      errors.push('All fields must be filled correctly');
+    if (
+      !data.position ||
+      !data.office ||
+      isNaN(data.salary) ||
+      data.salary <= 0
+    ) {
+      errors.push('All fields must be filled correctly and salary must be >0');
     }
 
     showNotification(
